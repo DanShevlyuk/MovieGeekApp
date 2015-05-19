@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ncj-hW-jcd">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--MovieGeek-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="NewGameViewController" customModule="MovieGeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nth-Xo-iLo"/>
+                        <viewControllerLayoutGuide type="bottom" id="YyH-2G-fhg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Geek" translatesAutoresizingMaskIntoConstraints="NO" id="UTn-np-wvF">
+                                <rect key="frame" x="24" y="123" width="271" height="167"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="63" y="140" width="185" height="297"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет! Загадай название фильма. Я попробую его угадать 🎬🎥😎" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbW-Jc-JAC">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="17" y="82" width="273" height="69"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EN0-1j-Od4">
+                                <rect key="frame" x="63" y="391" width="194" height="74"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="-1" height="0.0"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Новая игра">
+                                            <attributes>
+                                                <font key="NSFont" size="21" name="HelveticaNeue-Medium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="71" y="413" width="178" height="93"/>
+                                </variation>
+                                <connections>
+                                    <action selector="startNewGameTouch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CvP-1D-fgM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="FbW-Jc-JAC"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="FbW-Jc-JAC"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="MovieGeek" id="Pbf-ZO-QJv"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="newGameButton" destination="EN0-1j-Od4" id="iF9-yl-RE0"/>
+                        <segue destination="use-NM-SQu" kind="presentation" identifier="gameTabToGame" id="GdE-qs-VMP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4815" y="-414"/>
+        </scene>
+        <!--Game-->
+        <scene sceneID="Vpt-WI-fkf">
+            <objects>
+                <viewController id="MU6-eA-gHe" customClass="GameViewController" customModule="MovieGeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lgJ-T3-65b"/>
+                        <viewControllerLayoutGuide type="bottom" id="ieH-UT-kXl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t0M-td-uLz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdM-yu-d6X">
+                                <rect key="frame" x="95" y="317" width="131" height="50"/>
+                                <color key="backgroundColor" red="0.8784313725490196" green="0.12549019607843137" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="5J0-ql-DEx"/>
+                                    <constraint firstAttribute="height" constant="50" id="usZ-vS-jpH"/>
+                                </constraints>
+                                <state key="normal" title="Да">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="yesButtonPush:" destination="MU6-eA-gHe" eventType="touchUpInside" id="dQs-eg-fz2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-Yj-bF9">
+                                <rect key="frame" x="95" y="456" width="131" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="CCy-PI-AvV"/>
+                                    <constraint firstAttribute="height" constant="50" id="FQD-Uc-Gvd"/>
+                                </constraints>
+                                <state key="normal" title="Не знаю">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="idunnoButtonPush:" destination="MU6-eA-gHe" eventType="touchUpInside" id="Ipu-zb-WSY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fl5-Ym-lbk">
+                                <rect key="frame" x="95" y="385" width="131" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MA2-As-SLI"/>
+                                    <constraint firstAttribute="width" constant="131" id="mDD-cp-c6n"/>
+                                </constraints>
+                                <state key="normal" title="Нет">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noButtonPush:" destination="MU6-eA-gHe" eventType="touchUpInside" id="JFU-Fn-W0N"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FW-jo-aaq" customClass="QuestionCardView" customModule="MovieGeekApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="101" width="281" height="167"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0FW-jo-aaq" secondAttribute="bottom" constant="300" id="7Av-ya-cPP"/>
+                            <constraint firstAttribute="centerX" secondItem="jRP-Yj-bF9" secondAttribute="centerX" id="C5l-Ev-9wr"/>
+                            <constraint firstAttribute="centerX" secondItem="0FW-jo-aaq" secondAttribute="centerX" id="E0o-GO-ZHJ"/>
+                            <constraint firstItem="fl5-Ym-lbk" firstAttribute="top" secondItem="TdM-yu-d6X" secondAttribute="bottom" constant="18" id="FMt-Pr-0kB"/>
+                            <constraint firstItem="TdM-yu-d6X" firstAttribute="top" secondItem="0FW-jo-aaq" secondAttribute="bottom" constant="49" id="Kq8-r2-jLl"/>
+                            <constraint firstItem="0FW-jo-aaq" firstAttribute="leading" secondItem="t0M-td-uLz" secondAttribute="leadingMargin" constant="4" id="Rbk-z8-XWq"/>
+                            <constraint firstAttribute="centerX" secondItem="TdM-yu-d6X" secondAttribute="centerX" id="RhU-Ln-O55"/>
+                            <constraint firstItem="0FW-jo-aaq" firstAttribute="centerX" secondItem="jRP-Yj-bF9" secondAttribute="centerX" id="Ttf-P5-BQp"/>
+                            <constraint firstAttribute="centerX" secondItem="fl5-Ym-lbk" secondAttribute="centerX" id="Vb6-Wh-ZQ4"/>
+                            <constraint firstItem="0FW-jo-aaq" firstAttribute="top" secondItem="lgJ-T3-65b" secondAttribute="bottom" constant="37" id="rmq-wZ-yEZ"/>
+                            <constraint firstItem="jRP-Yj-bF9" firstAttribute="top" secondItem="fl5-Ym-lbk" secondAttribute="bottom" constant="21" id="sm5-Lt-kQv"/>
+                            <constraint firstItem="0FW-jo-aaq" firstAttribute="centerX" secondItem="TdM-yu-d6X" secondAttribute="centerX" id="wWc-Vs-VZ8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Game" id="Y6E-Oo-8aE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="gmQ-3I-YgZ">
+                            <connections>
+                                <action selector="closeButtonPush:" destination="MU6-eA-gHe" id="bbN-F0-Mjo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="idunnoButton" destination="jRP-Yj-bF9" id="CxP-Ql-igg"/>
+                        <outlet property="noButton" destination="fl5-Ym-lbk" id="Y0r-Af-d1u"/>
+                        <outlet property="questionCardPlaceholder" destination="0FW-jo-aaq" id="957-qu-JzM"/>
+                        <outlet property="yesButton" destination="TdM-yu-d6X" id="HFc-DB-sai"/>
+                        <segue destination="zi0-h2-Ogf" kind="show" identifier="gameToMovieChoose" id="r05-5m-o5O"/>
+                        <segue destination="09k-FF-CQv" kind="show" identifier="gameToEndGame" id="a7H-UP-uTT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPi-YS-nct" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6301" y="-414"/>
+        </scene>
+        <!--Может быть один из них?-->
+        <scene sceneID="QAb-dr-j2P">
+            <objects>
+                <viewController id="zi0-h2-Ogf" customClass="MovieChooseViewController" customModule="MovieGeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dcv-DK-IhX"/>
+                        <viewControllerLayoutGuide type="bottom" id="qhh-qg-HJ8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ybm-pi-32I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="6ab-VF-Zp0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="tBu-b1-VAw">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tBu-b1-VAw" id="zRE-hv-SpR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Fms-Ig-S61"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Может быть один из них?" id="ZYu-NT-ZRh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FRv-vR-7gX">
+                            <connections>
+                                <action selector="addButtonPush:" destination="zi0-h2-Ogf" id="20N-zv-Asj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="addButton" destination="FRv-vR-7gX" id="wez-LS-Utr"/>
+                        <outlet property="moviesTableView" destination="6ab-VF-Zp0" id="EiV-VM-0Jc"/>
+                        <segue destination="09k-FF-CQv" kind="show" identifier="MovieChooseToEndGame" id="GPy-Dy-tyC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J8n-NC-5FT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6805" y="-50"/>
+        </scene>
+        <!--Ура!-->
+        <scene sceneID="Su0-gv-gqa">
+            <objects>
+                <viewController id="09k-FF-CQv" customClass="EndGameViewController" customModule="MovieGeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gnw-uq-vNg"/>
+                        <viewControllerLayoutGuide type="bottom" id="zn0-OJ-PbH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RoM-21-gGu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJA-8l-NmN">
+                                <rect key="frame" x="129" y="285" width="62" height="30"/>
+                                <state key="normal" title="Закрыть">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonPush:" destination="09k-FF-CQv" eventType="touchUpInside" id="nmE-9M-jjz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Игра окончена!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkG-x4-Ir1">
+                                <rect key="frame" x="63" y="167" width="195" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="kaQ-bA-9GN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eJA-8l-NmN" firstAttribute="centerX" secondItem="IkG-x4-Ir1" secondAttribute="centerX" id="0BT-To-J33"/>
+                            <constraint firstItem="IkG-x4-Ir1" firstAttribute="top" secondItem="gnw-uq-vNg" secondAttribute="bottom" constant="103" id="3AB-b2-SeK"/>
+                            <constraint firstItem="IkG-x4-Ir1" firstAttribute="centerX" secondItem="RoM-21-gGu" secondAttribute="centerX" id="VnY-rW-uBR"/>
+                            <constraint firstItem="IkG-x4-Ir1" firstAttribute="leading" secondItem="RoM-21-gGu" secondAttribute="leadingMargin" constant="47" id="sdU-sg-wEG"/>
+                            <constraint firstItem="eJA-8l-NmN" firstAttribute="top" secondItem="IkG-x4-Ir1" secondAttribute="bottom" constant="45" id="spl-af-3Zn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ура!" id="Qf8-e0-KAv"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKT-H1-npB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7297" y="-506"/>
+        </scene>
+        <!--Questions-->
+        <scene sceneID="33t-vw-7TV">
+            <objects>
+                <viewController id="ZA8-X3-maY" customClass="QuestionStatViewController" customModule="MovieGeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b1f-aq-0Fm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Thx-0v-IhW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L05-cs-ivb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mJh-Kn-4ZO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionCell" rowHeight="100" id="67T-aZ-eOf" customClass="QuestionTableViewCell" customModule="MovieGeekApp" customModuleProvider="target">
+                                        <rect key="frame" x="-140" y="246" width="600" height="76"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="67T-aZ-eOf" id="haW-Qx-pCY">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Главный герой фильма водитель?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsU-Xl-VTy">
+                                                    <rect key="frame" x="13" y="5" width="259" height="86"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHM-7z-H7C">
+                                                    <rect key="frame" x="285" y="37" width="29" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BsU-Xl-VTy" firstAttribute="centerX" secondItem="haW-Qx-pCY" secondAttribute="centerX" constant="-17.5" id="9yE-dm-j6v"/>
+                                                <constraint firstItem="gHM-7z-H7C" firstAttribute="trailing" secondItem="haW-Qx-pCY" secondAttribute="trailingMargin" constant="2" id="YnQ-hE-BpF"/>
+                                                <constraint firstItem="BsU-Xl-VTy" firstAttribute="bottom" secondItem="haW-Qx-pCY" secondAttribute="bottomMargin" id="aE4-0K-UPD"/>
+                                                <constraint firstItem="BsU-Xl-VTy" firstAttribute="top" secondItem="haW-Qx-pCY" secondAttribute="topMargin" constant="-3" id="iN7-xn-Dbk"/>
+                                                <constraint firstItem="BsU-Xl-VTy" firstAttribute="leading" secondItem="haW-Qx-pCY" secondAttribute="leadingMargin" constant="5" id="thh-1L-zqm"/>
+                                                <constraint firstItem="gHM-7z-H7C" firstAttribute="leading" secondItem="BsU-Xl-VTy" secondAttribute="trailing" constant="13" id="xrl-wc-SPc"/>
+                                                <constraint firstItem="gHM-7z-H7C" firstAttribute="top" secondItem="haW-Qx-pCY" secondAttribute="topMargin" constant="29" id="yVB-jj-ddC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="questonTextLabel" destination="BsU-Xl-VTy" id="AOs-EE-les"/>
+                                            <outlet property="totalAnsTextLabel" destination="gHM-7z-H7C" id="UIR-kN-v7a"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Questions" id="ZyQ-KC-92w">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DNj-ip-eLc">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addNewQuestion:" destination="ZA8-X3-maY" id="5VO-OA-tYz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="addButton" destination="DNj-ip-eLc" id="1Hb-mv-fWP"/>
+                        <outlet property="questionsTableView" destination="mJh-Kn-4ZO" id="zof-de-xLs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wr-Au-ZOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5802" y="1325"/>
+        </scene>
+        <!--QuestionsNavigationBar-->
+        <scene sceneID="aje-7N-6qr">
+            <objects>
+                <navigationController id="4Mr-Do-a3n" userLabel="QuestionsNavigationBar" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Questions" image="QuestionsTab" id="icq-62-v0A"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gD2-RH-iz8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.14901960780000001" green="0.6705882353" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZA8-X3-maY" kind="relationship" relationship="rootViewController" id="Vuo-2l-kDZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fIa-LX-fnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5125.5" y="1341"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="7Bt-IH-SXd">
+            <objects>
+                <navigationController id="dWS-oe-14x" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" image="MoviesTab" id="smM-0I-WcP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="M6M-tq-dbj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.14901960780000001" green="0.6705882353" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0z0-uf-2Zc" kind="relationship" relationship="rootViewController" id="q2c-20-h15"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Gd-1p-tUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4171.5" y="329.99999999999994"/>
+        </scene>
+        <!--Movies View Controller-->
+        <scene sceneID="X4a-V0-H9q">
+            <objects>
+                <viewController id="0z0-uf-2Zc" userLabel="Movies View Controller" customClass="MoviesStatViewContoller" customModule="MovieGeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Des-r4-CH3"/>
+                        <viewControllerLayoutGuide type="bottom" id="jHG-VO-4RA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OyQ-Td-fpb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dHJ-tb-HaQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="72" id="iSY-Sz-ooN" customClass="MovieTableViewCell" customModule="MovieGeekApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iSY-Sz-ooN" id="GjV-vn-zCy">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pa3-aY-53O">
+                                                    <rect key="frame" x="264" y="25" width="36" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Драйв" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7i-nh-l8v">
+                                                    <rect key="frame" x="20" y="14" width="194" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="194" id="jf9-Jr-3Hs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="B7i-nh-l8v" firstAttribute="leading" secondItem="GjV-vn-zCy" secondAttribute="leadingMargin" constant="12" id="1RL-Vh-vCa"/>
+                                                <constraint firstItem="pa3-aY-53O" firstAttribute="leading" secondItem="B7i-nh-l8v" secondAttribute="trailing" constant="50" id="Pb8-Kt-LMb"/>
+                                                <constraint firstItem="pa3-aY-53O" firstAttribute="top" secondItem="GjV-vn-zCy" secondAttribute="topMargin" constant="17" id="Q6q-ra-xMx"/>
+                                                <constraint firstItem="B7i-nh-l8v" firstAttribute="top" secondItem="GjV-vn-zCy" secondAttribute="topMargin" constant="6" id="aGQ-HF-WwQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pa3-aY-53O" secondAttribute="trailing" constant="12" id="bsc-5U-b5y"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="B7i-nh-l8v" secondAttribute="bottom" constant="5" id="eDY-eu-9JJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pa3-aY-53O" secondAttribute="bottom" constant="17" id="s1e-Jx-sTb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieNameLabel" destination="B7i-nh-l8v" id="sbS-GO-JWb"/>
+                                            <outlet property="movieStatLabel" destination="pa3-aY-53O" id="jnH-Ir-CLO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movies" id="vnw-Bn-hQI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9uE-Ks-nsw">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addNewMovie:" destination="0z0-uf-2Zc" id="C23-b0-UqF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="addButton" destination="9uE-Ks-nsw" id="B2f-Wd-PuW"/>
+                        <outlet property="moviesTableView" destination="dHJ-tb-HaQ" id="tA7-AR-VIH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VbB-I7-2t1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5110" y="337"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KTN-LP-ZWD">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ncj-hW-jcd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="BRa-4M-ZKy">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="suT-1f-1eW" kind="relationship" relationship="viewControllers" id="mRv-GU-hJ9"/>
+                        <segue destination="dWS-oe-14x" kind="relationship" relationship="viewControllers" id="26l-91-duo"/>
+                        <segue destination="4Mr-Do-a3n" kind="relationship" relationship="viewControllers" id="mP0-Gn-YH6"/>
+                        <segue destination="MyO-RC-fOS" kind="relationship" relationship="viewControllers" id="UtT-9e-Vc3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BuS-3h-rs9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3028.5" y="580.49999999999989"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="CPH-FQ-wUi">
+            <objects>
+                <viewController id="8yC-R2-9BW" userLabel="About" customClass="InfoViewController" customModule="MovieGeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8BN-dW-zse"/>
+                        <viewControllerLayoutGuide type="bottom" id="bV0-Dp-g6M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6hm-Y3-MxS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7z-LY-bcu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="О приложении " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCD-bQ-7zK">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="8" width="143" height="32"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddj-F9-F6O">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <string key="text">MovieGeek - это человек, который живет в Амстердаме и больше всего на свете любит угадывать названия фильмов. Он постоянно тренеруется и со временем станет самым лучшим экспертом по фильмам в мире. </string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="31" width="262" height="150"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D53-V1-ye2">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <string key="text">Он не всгда может угадать то, что вы загадали, ведь новые фильмы выходят очень часто! Поэтому, если он не угадал, то вы можете рассказать ему о новом фильме, и тогда он обязательно посмотрит его и в скором времени научится угадывать!</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="163" width="262" height="162"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="OCD-bQ-7zK"/>
+                                        <exclude reference="ddj-F9-F6O"/>
+                                        <exclude reference="D53-V1-ye2"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="26" y="78" width="278" height="345"/>
+                                    <mask key="subviews">
+                                        <include reference="OCD-bQ-7zK"/>
+                                        <include reference="ddj-F9-F6O"/>
+                                        <include reference="D53-V1-ye2"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieGeek - v1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dv-IR-Q5N">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="92" y="490" width="136" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="q7z-LY-bcu"/>
+                                <exclude reference="5Dv-IR-Q5N"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="q7z-LY-bcu"/>
+                                <include reference="5Dv-IR-Q5N"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Info" id="V3E-vV-lCT"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="textView" destination="q7z-LY-bcu" id="GD3-LY-txf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4a-Hu-zr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3271.5" y="1316.25"/>
+        </scene>
+        <!--Game-->
+        <scene sceneID="hQq-tO-shl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="suT-1f-1eW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Game" image="GameTab" id="VWZ-qz-A4h"/>
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="9wQ-l9-sob">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.14901960784313725" green="0.6705882352941176" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.94117647058823528" green="0.96862745098039216" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="lRB-Qn-ghY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="td0-V6-q6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4214" y="-414"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="Ggl-H6-lfp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MyO-RC-fOS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Info" image="InfoTab" id="rBi-Nq-yYg"/>
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="UR4-h5-K2i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.14901960780000001" green="0.6705882353" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Nwm-pd-FfM">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="8yC-R2-9BW" kind="relationship" relationship="rootViewController" id="Kkp-r4-r4v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEJ-cR-ZhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2353.5" y="1316.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="64s-MN-KKD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="use-NM-SQu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ubE-1F-rlP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MU6-eA-gHe" kind="relationship" relationship="rootViewController" id="T8g-xW-lay"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Pl-Wq-kna" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5565" y="-414"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GameTab" width="32" height="32"/>
+        <image name="Geek" width="504" height="901"/>
+        <image name="InfoTab" width="32" height="32"/>
+        <image name="MoviesTab" width="32" height="32"/>
+        <image name="QuestionsTab" width="32" height="32"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GPy-Dy-tyC"/>
+    </inferredMetricsTieBreakers>
+</document>
