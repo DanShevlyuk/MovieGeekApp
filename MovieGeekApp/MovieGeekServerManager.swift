@@ -12,8 +12,8 @@ import Alamofire
 class MovieGeekServerManager: NSObject {
     
     static let sharedInstance: MovieGeekServerManager = MovieGeekServerManager()
-//    let baseUrl = "http://188.226.233.9/api/v1.0/"
-    let baseUrl = "http://127.0.0.1:5000/api/v1.0/"
+    let baseUrl = "http://188.226.233.9/api/v1.0/"
+//    let baseUrl = "http://127.0.0.1:5000/api/v1.0/"
     var currentGameID: String?
     
     func startNewGame(onSuccess: (question: Question) -> Void, onFailure: (error: NSError) -> Void) {
