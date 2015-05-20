@@ -24,7 +24,8 @@ class MovieChooseViewController: UIViewController, UITableViewDataSource, UITabl
         self.alertWithTextField!.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Название фильма"
         })
-        self.alertWithTextField!.addAction(UIAlertAction(title: "Готово!", style: UIAlertActionStyle.Default,
+        self.alertWithTextField!.addAction(UIAlertAction(title: "Отмена", style: .Default, handler: nil))
+        self.alertWithTextField!.addAction(UIAlertAction(title: "Готово!", style: .Default,
             handler: { (action) -> Void in
                 let textField = self.alertWithTextField!.textFields![0] as! UITextField
                 if textField.text != "" {

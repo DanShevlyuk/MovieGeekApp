@@ -75,6 +75,9 @@ class GameViewController: UIViewController, UIAlertViewDelegate {
         self.indicator.stopAnimating()
         var finalQuestionAlert = UIAlertController(title: "Я понял!", message: "Мне кажется вы загадывали \"\(movieList[0].name)\"", preferredStyle: UIAlertControllerStyle.Alert)
         finalQuestionAlert.addAction(UIAlertAction(title: "Да", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction!) -> Void in
+            MovieGeekServerManager.sharedInstance.submitAnswer(movie: movieList[0], onFailure: { (error) -> Void in
+                println(error)
+            })
             self.performSegueWithIdentifier("gameToEndGame", sender: nil)
         }))
         finalQuestionAlert.addAction(UIAlertAction(title: "Нет", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction!) -> Void in
