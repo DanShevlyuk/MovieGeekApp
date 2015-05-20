@@ -26,7 +26,8 @@ class MoviesStatViewContoller: UIViewController, UITableViewDataSource, UITableV
         self.alertWithTextField!.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Название фильма"
         })
-        self.alertWithTextField!.addAction(UIAlertAction(title: "Готово!", style: UIAlertActionStyle.Default,
+        self.alertWithTextField!.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.Default, handler: nil))
+        self.alertWithTextField!.addAction(UIAlertAction(title: "Готово", style: UIAlertActionStyle.Default,
             handler: { (action) -> Void in
                 let textField = self.alertWithTextField!.textFields![0] as! UITextField
                 if textField.text != "" {
@@ -60,9 +61,13 @@ class MoviesStatViewContoller: UIViewController, UITableViewDataSource, UITableV
             self.moviesTableView.reloadData()
             self.addButton.enabled = true
         }
-
     }
-
+    
+    @IBAction func addNewMovie(sender: AnyObject) {
+        if let alert = self.alertWithTextField {
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
     
     //MARK: - UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -76,9 +81,8 @@ class MoviesStatViewContoller: UIViewController, UITableViewDataSource, UITableV
         return moviesList.count
     }
     
-    @IBAction func addNewMovie(sender: AnyObject) {
-        if let alert = self.alertWithTextField {
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+    //MARK: - UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.moviesTableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

@@ -25,6 +25,7 @@ class QuestionStatViewController: UIViewController, UITableViewDataSource, UITab
         self.alertWithTextField!.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "???"
         })
+        self.alertWithTextField!.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.Default, handler: nil))
         self.alertWithTextField!.addAction(UIAlertAction(title: "Готово!", style: UIAlertActionStyle.Default,
             handler: { (action) -> Void in
                 let textField = self.alertWithTextField!.textFields![0] as! UITextField
@@ -61,8 +62,13 @@ class QuestionStatViewController: UIViewController, UITableViewDataSource, UITab
         }
 
     }
-
     
+    @IBAction func addNewQuestion(sender: AnyObject) {
+        if let alert = self.alertWithTextField {
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+
     //MARK: - UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = questionsTableView.dequeueReusableCellWithIdentifier("questionCell") as! QuestionTableViewCell
@@ -75,10 +81,9 @@ class QuestionStatViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questionList.count
     }
-
-    @IBAction func addNewQuestion(sender: AnyObject) {
-        if let alert = self.alertWithTextField {
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+    
+    //MARK: - UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.questionsTableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
